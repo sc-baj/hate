@@ -377,7 +377,7 @@ def user_agentAPI():
 	return USER_AGENT_BASE
 
 class instagramAPI:
-	API_URL = 'https://z-p42.www.instagram.com/api/v1/'
+	API_URL = 'https://i.instagram.com/api/v1/'
 	DEVICE_SETTINTS = {'manufacturer': 'Xiaomi',
 		'model': 'HM 1SW',
 		'android_version': 18,
@@ -410,7 +410,7 @@ class instagramAPI:
 			return generated_uuid.replace('-', '')
 
 	def loginAPI(self):
-		token=self.s.get("https://z-p42.www.instagram.com/",headers={"user-agent":User_Agent()}).text
+		token=self.s.get("https://www.instagram.com/",headers={"user-agent":User_Agent()}).text
 		crf_token=re.findall(r"\"csrf_token\"\:\"(.*?)\"", str(token))[0]
 		self.s.headers.update({'Connection': 'close',
 			'Accept': '*/*',
@@ -430,7 +430,7 @@ class instagramAPI:
 			self.generateUUID(False),
 			urllib.request.quote(self.data)
 		)
-		x=self.s.post("https://z-p42.www.instagram.com/api/v1/accounts/login/", self.payload)
+		x=self.s.post("https://i.instagram.com/api/v1/accounts/login/", self.payload)
 		x_jason=json.loads(x.text)
 		x_kukis=x.cookies.get_dict()
 		if "logged_in_user" in x.text:
@@ -487,7 +487,7 @@ class instagram:
 		else:self.Exit()
 
 	def sixAPI(self,six_id):
-		url = "https://z-p42.www.instagram.com/web/search/topsearch/?context=blended&query="+six_id+"&rank_token=0.3953592318270893&count=1"
+		url = "https://www.instagram.com/web/search/topsearch/?context=blended&query="+six_id+"&rank_token=0.3953592318270893&count=1"
 		x = requests.get(url)
 		x_jason = x.json()
 		uid = str( x_jason['users'][0].get("user").get("pk") )
@@ -495,7 +495,7 @@ class instagram:
 
 	def unfollowAPI(self,user_id,username_id,cookie):
 		uuid=self.generateUUID(True)
-		xx=self.s.get("https://z-p42.www.instagram.com/",headers={"user-agent":User_Agent()}).content
+		xx=self.s.get("https://www.instagram.com/",headers={"user-agent":User_Agent()}).content
 		crf_token = re.findall('{"config":{"csrf_token":"(.*)","viewer"',str(xx))[0]
 		s.headers.update({'Connection': 'close',
                        'Accept': '*/*',
@@ -512,12 +512,12 @@ class instagram:
 		self.payload = 'signed_body={}.{}&ig_sig_key_version=4'.format(
 			self.generateUUID(False),
 			urllib.request.quote(data))
-		return s.post('https://z-p42.www.instagram.com/api/v1/friendships/destroy/%s/'%(user_id),self.payload,cookies=cookie).text
+		return s.post('https://i.instagram.com/api/v1/friendships/destroy/%s/'%(user_id),self.payload,cookies=cookie).text
 
 
 	def searchAPI(self,cookie,nama):
 		try:
-			x=s.get('https://z-p42.www.instagram.com/web/search/topsearch/?count=100000&context=blended&query=%s&rank_token=0.21663777590422106&include_reel=true'%(nama),cookies=cookie,headers={"user-agent":USN})
+			x=s.get('https://www.instagram.com/web/search/topsearch/?count=100000&context=blended&query=%s&rank_token=0.21663777590422106&include_reel=true'%(nama),cookies=cookie,headers={"user-agent":USN})
 			x_jason=json.loads(x.text)
 			for i in x_jason['users']:
 				user=i['user']
@@ -531,7 +531,7 @@ class instagram:
 	def idAPI(self,cookie,id):
 		if 'sukses' in lisensiku:
 			try:
-				m=s.get("https://z-p42.www.instagram.com/api/v1/users/web_profile_info/?username=%s"%(id),cookies=cookie,headers={"user-agent":USN,"x-ig-app-id":'936619743392459'})
+				m=s.get("https://i.instagram.com/api/v1/users/web_profile_info/?username=%s"%(id),cookies=cookie,headers={"user-agent":USN,"x-ig-app-id":'936619743392459'})
 				m_jason=m.json()["data"]["user"]
 				idx=m_jason["id"]
 			except requests.exceptions.ConnectionError:
@@ -544,7 +544,7 @@ class instagram:
    	
 	def ingfo(self,cookie):
 		try:
-			link = s.get(f"https://z-p42.www.instagram.com/api/v1/accounts/edit/web_form_data/", headers={"user-agent":user_agentAPI()},cookies={"cookie":cookie}).json()["form_data"]
+			link = s.get(f"https://i.instagram.com/api/v1/accounts/edit/web_form_data/", headers={"user-agent":user_agentAPI()},cookies={"cookie":cookie}).json()["form_data"]
 			nomor = link["phone_number"].replace("-", "").replace(" ", "")
 			tggl = link["birthday"]
 			year, month, day = tggl.split("-")
@@ -569,7 +569,7 @@ class instagram:
 				if 'pengikut' in menudump:
 					maxid=x_jason['next_max_id']
 					for z in range (9999):
-						x=s.get('https://z-p42.www.instagram.com/api/v1/friendships/'+id+'/followers/?count=100&max_id='+maxid,cookies=cookie,headers={"user-agent":USN})
+						x=s.get('https://i.instagram.com/api/v1/friendships/'+id+'/followers/?count=100&max_id='+maxid,cookies=cookie,headers={"user-agent":USN})
 						x_jason=json.loads(x.text)
 						try:
 							for i in x_jason['users']:
@@ -607,7 +607,7 @@ class instagram:
 				if 'mengikuti' in menudump:
 					maxid=x_jason['next_max_id']
 					for z in range (9999):
-						x=s.get('https://z-p42.www.instagram.com/api/v1/friendships/'+id+'/following/?count=100&max_id='+maxid,cookies=cookie,headers={"user-agent":USN})
+						x=s.get('https://www.instagram.com/api/v1/friendships/'+id+'/following/?count=100&max_id='+maxid,cookies=cookie,headers={"user-agent":USN})
 						x_jason=json.loads(x.text)
 						try:
 							for i in x_jason['users']:
@@ -701,7 +701,7 @@ class instagram:
 
 	def APIinfo(self,user):
 		try:
-			x=s.get("https://z-p42.www.instagram.com/api/v1/users/web_profile_info/?username=%s"%(user),headers={"user-agent":user_agentAPI(),"x-ig-app-id":'936619743392459'})
+			x=s.get("https://i.instagram.com/api/v1/users/web_profile_info/?username=%s"%(user),headers={"user-agent":user_agentAPI(),"x-ig-app-id":'936619743392459'})
 			x_jason=x.json()["data"]["user"]
 			nama=x_jason["full_name"]
 			pengikut=x_jason["edge_followed_by"]["count"]
