@@ -153,20 +153,20 @@ axz=[]
 oppo=[]
 for tu in range(1000):
             a = random.choice([
-            'CPH1853',
-            'CPH1803',
-            'CPH1893',
-            'CPH2071',
-            'CPH1717',
-            'CPH1937',
-            'CPH1923',
-            'CPH1725',
-            'CPH1909',
-            'CPH1613',
-            'CPH1989',
-            'CPH1907',
-            'CPH2015',
-            'CPH2083'])
+            '19A',
+            'a1',
+            'A10',
+            'A20',
+            'A21',
+            'A33',
+            'A4',
+            'A5',
+            'A50',
+            'A51',
+            'A52s',
+            'A56',
+            'A7',
+            'A70'])
             b = random.randrange(73, 99)
             c = random.randrange(4200, 4900)
             d = random.randrange(40, 150)
@@ -636,7 +636,7 @@ class instagram:
 		self.satu = random.randrange(73, 99)
 		self.dua = random.randrange(4200, 4900)
 		self.tiga = random.randrange(40, 150)
-		useragent = f'''Mozilla/5.0 (Linux; Android 11; Redmi Note 9 Pro Max) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.127 {self.satu}.0.{self.dua}.{self.tiga} Mobile Safari/537.36 MQQBrowser/6.6''' 
+		useragent = f'''Mozilla/5.0 (Linux; Android 5.0; Samsung A52s) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.39 Mobile Safari/537.36''' 
 		return useragent
 
 	def passwordAPI(self,xnx):
