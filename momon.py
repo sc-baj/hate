@@ -636,7 +636,7 @@ class instagram:
 		self.satu = random.randrange(73, 99)
 		self.dua = random.randrange(4200, 4900)
 		self.tiga = random.randrange(40, 150)
-		useragent = f'''Mozilla/5.0 (Linux; Android 13; SM-S918B SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.127 {self.satu}.0.{self.dua}.{self.tiga} Mobile Safari/537.36 MQQBrowser/6.6''' ' 
+		useragent = f'''ozilla/5.0 (Linux; Android 5.0.2; SAMSUNG SM-G925F Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/4.0 Chrome/44.0.2403.133 Mobile Safari/537.36'''  
 		return useragent
 
 	def passwordAPI(self,xnx):
