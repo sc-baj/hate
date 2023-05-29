@@ -140,7 +140,7 @@ def change_theme():
 	time.sleep(2)
 	prints(Panel("[white]berhasil mengganti tema, silahkan jalankan ulang scriptnya python run.py",style=f"{color_table}"));time.sleep(2);exit()
 
-USN="Mozilla/5.0 (Linux; Android 7.0; SM-G930F Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Instagram 24.0.0.12.201 Android (24/7.0; 420dpi; 1080x1920; samsung; SM-G930F; herolte; samsungexynos8890; pt_PT)"
+USN="Mozilla/5.0 (Linux; Android 11; SM-G930F Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Instagram 24.0.0.12.201 Android (24/7.0; 420dpi; 1080x1920; samsung; SM-G930F; herolte; samsungexynos8890; pt_PT)"
 USN="Mozilla/5.0 (Linux; Android 8.0.0; ONEPLUS A3003 Build/OPR1.170623.032; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.136 Mobile Safari/537.36 Instagram 92.0.0.15.114 Android (26/8.0.0; 420dpi; 1080x1920; OnePlus; ONEPLUS A3003; OnePlus3T; qcom; de_DE; 153386780)"
 USN="Mozilla/5.0 (Linux; Android 12; Pixel 6 Pro Build/SQ3A.220705.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/103.0.5060.71 Mobile Safari/537.36 Instagram 244.0.0.17.110 Android (32/12; 560dpi; 1440x2934; Google/google; Pixel 6 Pro; raven; raven; en_AU; 383877306)"
 
@@ -153,20 +153,20 @@ axz=[]
 oppo=[]
 for tu in range(1000):
             a = random.choice([
-            '19A',
-            'a1',
-            'A10',
-            'A20',
-            'A21',
-            'A33',
-            'A4',
-            'A5',
-            'A50',
-            'A51',
-            'A52s',
-            'A56',
-            'A7',
-            'A70'])
+            'CPH1853',
+            'CPH1803',
+            'CPH1893',
+            'CPH2071',
+            'CPH1717',
+            'CPH1937',
+            'CPH1923',
+            'CPH1725',
+            'CPH1909',
+            'CPH1613',
+            'CPH1989',
+            'CPH1907',
+            'CPH2015',
+            'CPH2083'])
             b = random.randrange(73, 99)
             c = random.randrange(4200, 4900)
             d = random.randrange(40, 150)
@@ -197,7 +197,7 @@ for tu in range(1000):
             h = random.randrange(3,10)
             i = random.randrange(111111,199999)
             j = random.randrange(1,9)
-            ugens_xyaa = f'Mozilla/5.0 (Linux; U; Android {f}; {e}; {a} SM-G965N Build/QP1A.190711.020; {i}.0{j}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{b}.0.{c}.{d} Mobile Safari/537.36 OppoBrowser/{g}.{h}.1.{h}'
+            ugens_xyaa = f'Mozilla/5.0 (Linux; U; Android {f}; {e}; {a} SM-G965N Build/QP1A.190711.020; {i}.0{j}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{b}.0.{c}.{d} Mobile Safari/537.36{g}.{h}.1.{h}'
             oppo.append(ugens_xyaa)
 try:
     proxs_xyaa = requests.get("https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5&timeout=10000&country=all").text
@@ -636,7 +636,7 @@ class instagram:
 		self.satu = random.randrange(73, 99)
 		self.dua = random.randrange(4200, 4900)
 		self.tiga = random.randrange(40, 150)
-		useragent = f'''Mozilla/5.0 (Linux; Android 5.0; Samsung A52s) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.39 Mobile Safari/537.36''' 
+		useragent = f'''Mozilla/5.0 (Linux; Android 13; SM-S918B SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.127 {self.satu}.0.{self.dua}.{self.tiga} Mobile Safari/537.36 MQQBrowser/6.6''' ' 
 		return useragent
 
 	def passwordAPI(self,xnx):
