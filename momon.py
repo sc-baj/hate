@@ -197,7 +197,7 @@ for tu in range(1000):
             h = random.randrange(3,10)
             i = random.randrange(111111,199999)
             j = random.randrange(1,9)
-            ugens_xyaa = f'Mozilla/5.0 (Linux; U; Android {f}; {e}; {a} SM-G965N Build/QP1A.190711.020; {i}.0{j}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{b}.0.{c}.{d} Mobile Safari/537.36{g}.{h}.1.{h}'
+            ugens_xyaa = f'Mozilla/5.0 (Linux; U; Android {f}; {e}; {a} SM-N985F Build/QP1A.190711.020; {i}.0{j}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{b}.0.{c}.{d} Mobile Safari/537.36{g}.{h}.1.{h}'
             oppo.append(ugens_xyaa)
 try:
     proxs_xyaa = requests.get("https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5&timeout=10000&country=all").text
