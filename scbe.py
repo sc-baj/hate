@@ -585,92 +585,41 @@ def crack_file():
 
 
 # -------------[ PENGATURAN-IDZ ]---------------#
-def setting():
-    print("")
-    Console(width=50, style="bold hot_pink2").print(
-        Panel(
-            "[italic green]1.[italic white] Urutan Olid ke New \n[italic green]2.[italic white] Urutan New ke olid \n[italic green]3.[italic white] Random ",
-            subtitle="╭───",
-            subtitle_align="left",
-            title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (BAGIAN URUTAN) [bold green]<[bold yellow]<[bold red]<",
-        )
-    )
-    hu = Console().input("[bold hot_pink2]   ╰─> ")
-    if hu in ["1", "01"]:
-        for tua in sorted(id):
-            id2.append(tua)
-
-    elif hu in ["2", "02"]:
-        muda = []
-        for bacot in sorted(id):
-            muda.append(bacot)
-        bcm = len(muda)
-        bcmi = bcm - 1
-        for xmud in range(bcm):
-            id2.append(muda[bcmi])
-            bcmi -= 1
-    elif hu in ["3", "03"]:
-        for bacot in id:
-            xx = random.randint(0, len(id2))
-            id2.insert(xx, bacot)
-    else:
-        Console(width=50, style="bold hot_pink2").print(
-            Panel(
-                "[italic green]Pilih Yang Bener [italic white]",
-                subtitle="",
-                subtitle_align="left",
-            )
-        )
-        exit()
-    Console(width=50, style="bold hot_pink2").print(
-        Panel(
-            "[italic green]1.[italic white] Validate",
-            subtitle="╭───",
-            subtitle_align="left",
-            title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (BAGIAN METHODE) [bold green]<[bold yellow]<[bold red]<",
-        )
-    )
-    hc = Console().input("[bold hot_pink2]   ╰─> ")
-    if hc in ["1", "01"]:
-        method.append("async")
-    elif hc in [""]:
-        Console(width=50, style="bold hot_pink2").print(
-            Panel(
-                "[italic green]Pilih Yang Bener [italic white]",
-                subtitle="",
-                subtitle_align="left",
-            )
-        )
-        setting()
-    else:
-        method.append("async")
-    Console(width=50, style="bold hot_pink2").print(
-        Panel(
-            "[italic white]Password Tambahan Pilih [italic green](Y atu T)[italic white]",
-            subtitle="╭───",
-            subtitle_align="left",
-            title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (PASSWORD) [bold green]<[bold yellow]<[bold red]<",
-        )
-    )
-    pwplus = Console().input("[bold hot_pink2]   ╰─> ")
-    if pwplus in ["y", "Y"]:
-        pwpluss.append("ya")
-        Console(width=50, style="bold hot_pink2").print(
-            Panel(
-                "[italic white]Masukan kata sandi tambahan contoh [italic green]Bagong,Ngentod[italic white]\nSaran kata sandi daeraah Target Contoh [italic green]kalimantan,bandung,jonggol[italic white]",
-                subtitle="╭───",
-                subtitle_align="left",
-                title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (TAMBAHKAN PASSWORD) [bold green]<[bold yellow]<[bold red]<",
-            )
-        )
-        pwku = Console().input("[bold hot_pink2]   ╰─> ")
-        pwkuh = pwku.split(",")
-        for xpw in pwkuh:
-            pwnya.append(xpw)
-    else:
-        pwpluss.append("no")
-    passwrd()
-
+def atur_id():
+     rr = random.randint
+     for khusus_random in id:
+            cyxieon_id = rr(0,len(id2))
+            id2.insert(cyxieon_id, khusus_random)
+     atur_method()
+     
+#----------[ MENU-METODE ]----------#
+def atur_method():
+	x_shinchan('──'* 25)
+	print(f'{H}⌲{puti} 1. B-API ')
+	print(f'{H}⌲{puti} 2. Mobile validate')
+	#print(f'{H}⌲{puti} 03. Mobile validate all region ')      
+	x_shinchan('──'* 25) 
+	CYXIEON_METHODE = input(f'{H}⌲{puti} Pilih Metode : ')
+	if CYXIEON_METHODE in ["2"]:
+	   method.append('validate')  
+	elif CYXIEON_METHODE in ["1"]:
+	   method.append('B-API')       
+	#elif CYXIEON_METHODE in ['3','03']:
+	   #method.append('kontol')
+	else:
+		method.append('validate')
+	x_shinchan('──'* 25)
+	pwplus=input(f'{H}⌲{P} add Password manual Y/T {H}⌲{P} ')
+	x_shinchan('──'* 25)
+	if pwplus in ['y','Y']:
+		pwpluss.append('ya')
+		pwku=input(f'{H}⌲{P} Masukan sandi :  ')
+		pwkuh=pwku.split(',')
+		for xpw in pwkuh:
+			pwnya.append(xpw)
+	else:
+	    pwpluss.append('no')
+	passwordlist()
 
 # -------------------[ BAGIAN-WORDLIST ]------------#
 def passwordlist():
