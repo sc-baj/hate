@@ -754,7 +754,7 @@ def ua_valid():
     rc = random.choice
     android = random.choice(["10","12","13","14"])
     redmi1 = random.choice(["zh-tw","en-us","zh-cn"])
-    redmi2 = random.choice(["23127PN0CC","23116PN5BC","2206123SC","23076RA4BC","2206122SC","23090RA98C","23013RK75C","22011211C","23078RKD5C","2106118C","2304FPN6DC","22041216UC","22041216C","MI 8 UD"])
+    redmi2 = random.choice(['SM-S911B','SM-M025F','SM-N985F','SM-J337W','SM-G981U','SM-A515F','SM-N950U','SM-G570M','SM-A307FN'])
     redmi3 = random.choice(["SP1A.210812.016","UKQ1.230804.001","SKQ1.220303.001","TKQ1.221114.001","TKQ1.220829.002","TP1A.220624.014","TKQ1.220905.001","QKQ1.190828.002"])
     redmi4 = f"Mozilla/5.0 (Linux; U; Android {android}; {redmi1}; {redmi2} Build/{redmi3}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(100,109))}.0.{str(rr(4896,5414))}.{str(rr(118,127))} Mobile Safari/537.36 XiaoMi/MiuiBrowser/17.{str(rr(8,9))}.{str(rr(5,221128))} swan-mibrowser"
     return rc([redmi4])
