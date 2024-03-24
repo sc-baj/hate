@@ -165,7 +165,7 @@ class create:
             try:
                 ses = requests.Session()
                 buildses = user = "".join(random.SystemRandom().choice("qwertyuiopasdfghjklzxcvbnm0987654321") for i in range(26))
-                create = ses.get(f"https://10minutemail.net/address.api.php?new=1&sessionid={buildses}&_={int(datetime.now().timestamp() * 1000)}").json()
+                create = ses.get(f"https://mail-temp.com/address.api.php?new=1&sessionid={buildses}&_={int(datetime.now().timestamp() * 1000)}").json()
                 mail = {"mail": create["permalink"]["mail"], "session": create["session_id"]}
                 email = mail['mail']
                 session = mail['session']
