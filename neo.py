@@ -17,7 +17,7 @@ def inbox(session):
     time.sleep(1)
     ses = requests.Session()
     __ = str(time.time()).replace('.', '')[:13]
-    data = ses.get(f"https://10minutemail.net/address.api.php?sessionid={session}&_={str(__)}").json()
+    data = ses.get(f"https://mail-temp.com/address.api.php?sessionid={session}&_={str(__)}").json()
     if len(data["mail_list"]) !=1:
         address = data["mail_list"][0]["subject"]
         session = address.replace('FB-', '').replace('is your Facebook confirmation code', '')
