@@ -214,11 +214,11 @@ def UserAgent(idf):
 	rr = random.randint; rc = random.choice
 	model1 = rc(["SM-M405F", "SM-M405FN", "SM-M405G", "SM-M426B", "SM-M426B/DS","SM-M526BR", "SM-M526BR/DS", "SM-M526B", "SM-M526B/DS", "SM-N981B", "SM-N981B/DS", "SM-N981U", "SM-N981U1", "SM-N981W", "SM-N9810", "SM-N981N"])
 	model2 = rc(["RMX3687", "RMX3686", "RMX2202", "RMX3740"])
-	ua1 = f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.2365.80"
-	ua2 = f"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-	ua3 = f"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-	ua4 = f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-	ua5 = f"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+	ua1 = f"Dalvik/2.1.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.2365.80"
+	ua2 = f"Dalvik/2.1.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+	ua3 = f"Dalvik/2.1.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+	ua4 = f"Dalvik/2.1.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+	ua5 = f"Dalvik/2.1.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 	base = rc([ua1, ua2, ua3, ua4, ua5])
 	return base
 
