@@ -229,7 +229,7 @@ def UserAgent(idf):
     ua2 =f'Mozilla/5.0 (Linux; U; Android {str(rr(9,15))}; en-us; {RM} Build/{kombinasi}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(53,119))}.0.{str(rr(2500,8000))}.{str(rr(134,299))} Mobile Safari/537.36 RealmeBrowser/{str(rr(1,35))}.{str(rr(1,5))}.0.{str(rr(1,8))}'
     ua4 =f'Mozilla/5.0 (Linux; U; Android {str(rr(8,15))}; zh-cn; {RD} Build/{kombinasi}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(109,119))}.0.{str(rr(4000,10000))}.{str(rr(118,299))} Mobile Safari/537.36 XiaoMi/MiuiBrowser/{str(rr(10,19))}.{str(rr(1,9))}.{str(rr(100000,500000))}'
     CO = rc([ua0,ua1,ua2,ua4])
-	return base
+	return CO
 
 def _async_2_(idf,afa_aja_boleh):
 	global loop,ok,cp
