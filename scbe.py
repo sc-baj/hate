@@ -148,7 +148,7 @@ class Crack:
 
    def Ua(self): #-> Oprek Ua Di Sini
        self.vs = random.randint(90,121)
-       return 'Mozilla/5.0 (Linux; Android 10; V2027 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/103.0.5060.129 Mobile Safari/537.36[FBAN/EMA;FBLC/uk_UA;FBAV/314.0.0.18.108'%(self.vs)
+       return 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/%s.0.0.0 Safari/537.36'%(self.vs)
 
    def login(self, user, password):
        with requests.Session() as s:
