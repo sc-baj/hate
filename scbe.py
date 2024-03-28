@@ -221,7 +221,7 @@ def UserAgent(idf):
 	ua5 = f"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 	base = rc([ua1, ua2, ua3, ua4, ua5])
 	return base
-
+	
 def _async_2_(idf,afa_aja_boleh):
 	global loop,ok,cp
 	rr = random.randint; rc = random.choice
